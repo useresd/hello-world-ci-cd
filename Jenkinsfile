@@ -1,13 +1,13 @@
 pipeline {
     agent any
     environment {
-        CREDENTIALS "P@ssw0rd"
+        DOCKERHUB_CREDENTIALS = credentials("useresd-dockerhub")
     }
     stages {
         stage("Build") {
             steps {
                 sh """
-                    echo "Your password is $CREDENTIALS"
+                    echo "Your password is $DOCKERHUB_CREDENTIALS"
                 """
             }
         }
